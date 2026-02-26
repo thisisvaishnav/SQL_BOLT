@@ -1,2 +1,1 @@
 # SQL_BOLT
-# SQL_BOLT
