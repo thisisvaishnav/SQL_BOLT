@@ -68,5 +68,5 @@ WHERE year NOT BETWEEN 2000 AND 2010;
 ~~~sql
 SELECT title, year 
 FROM movies
-LIMIT 5;
+where id between 1 and 5;
 ~~~
