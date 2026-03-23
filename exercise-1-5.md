@@ -153,7 +153,8 @@ ORDER BY latitude DESC;
 
 ## 20. List all the cities west of Chicago, ordered from west to east
 ~~~sql
-SELECT city, longitude FROM north_american_cities
+SELECT city, longitude
+FROM north_american_cities
 WHERE longitude < -87.629798
 ORDER BY longitude ASC;
 ~~~
@@ -177,3 +178,89 @@ ORDER BY population DESC
 LIMIT 2 ;
 ~~~
 
+# Exercise 6
+
+## 23. Find the domestic and international sales for each movie
+~~~sql
+SELECT Movies.Title, Boxoffice.Domestic_sales, 
+Boxoffice.International_sales
+FROM movies
+JOIN Boxoffice 
+ON Movies.Id = Boxoffice.movie_id
+~~~
+
+## 24. List all the movies by their ratings in descending order
+~~~sql
+SELECT title, rating
+FROM movies
+  JOIN boxoffice
+    ON movies.id = boxoffice.movie_id
+ORDER BY rating DESC;
+~~~
+
+# Exercise 7
+## 25. Find the list of all buildings that have employees 
+~~~sql
+SELECT DISTINCT FROM BUILDING;
+
+~~~
+
+## 26. Find the list of all buildings and their capacity
+~~~sql
+SELECT * FROM buildings;
+~~~
+
+## 27. List all buildings and the distinct employee roles in each building (including empty buildings) 
+~~~sql
+SELECT DISTINCT building_name, role 
+FROM buildings 
+LEFT JOIN employees
+ON building_name = building;
+~~~
+# Exercise 8
+
+## 28. Find the name and role of all employees who have not been assigned to a building
+~~~sql
+SELECT name, role FROM employees
+WHERE building IS NULL;
+~~~
+## 29. Find the names of the buildings that hold no employees 
+~~~sql
+SELECT DISTINCT building_name
+FROM buildings 
+  LEFT JOIN employees
+    ON building_name = building
+WHERE role IS NULL;
+~~~
+
+# Exercise 9
+
+## 30. List all movies and their combined sales in millions of dollars
+~~~sql
+SELECT Titil, ( domestic_sales + International ) / 100000 as million
+FROM movie 
+join boxoffice on movies.ID = Boxoffice.Movie_ID;
+~~~
+## 31. List all movies and their ratings in percent
+~~~sql
+SELECT Title, Rating * 10 AS rating_percent
+FROM movies
+JOIN boxoffice ON movies.Id = Boxoffice.Movie_id;
+~~~
+
+## 32. List all movies that were released on even number years
+
+~~~sql
+SELECT Title, Year
+FROM movies
+JOIN boxoffice ON movies.Id = Boxoffice.Movie_id
+WHERE Year % 2 = 0;
+~~~
+
+# Exercise 10
+
+## 33. Find the longest time that an employee has been at the studio
+
+~~~sql
+
+~~~
